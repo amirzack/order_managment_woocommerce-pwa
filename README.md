@@ -19,19 +19,24 @@ Before you get started, ensure you have the following installed:
 
 To set up the environment in the **Backend** project, follow these steps:
 
-1. **Change `.env` file** in the root directory of the backend project.
+1. **Create `.env` file** in the root directory of the backend project.
 2. Update the `.env` file with the following values:
+3. PORT=3000
+SITE_URL=""
+CONSUMER_KEY=""
+CONSUMER_SECRET=""
+WEB_HOOK_SECRET=""; // Secret Key
+
    - `WOOCOMMERCE_API_KEY`: Your WooCommerce API key (generated in the WooCommerce admin panel).
    - `WOOCOMMERCE_API_SECRET`: Your WooCommerce API secret (generated alongside the API key).
-   - `SSE_ENDPOINT`: The endpoint URL for the SSE connection.
+
 
 #### Frontend
 
 For the **Frontend** project:
 
 1. Change the **`utils` file** in the root directory.
-2. Configure the following environment variables:
-   - `REACT_APP_SSE_URL`: The URL for your SSE endpoint.
+
 
 ### 2. Create API Key in WooCommerce
 
