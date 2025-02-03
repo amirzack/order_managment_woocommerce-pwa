@@ -44,11 +44,23 @@ To connect your project to WooCommerce, follow these steps to create an API key:
 5. Click on **Generate API Key**.
 6. Note down the **API Key** and **API Secret** generated for your project.
 
-### 3. Modify the API Key in Backend
+### 3. Create a Webhook in WooCommerce
 
-Once you've created your API key in WooCommerce, open the `.env` file in the **Backend** folder and update the necessary environment variables with the generated API key and secret.
+In addition to the API key, you need to create a webhook in WooCommerce to notify your system when a new product is created. Follow these steps:
 
-### 4. Running the Application
+1. Go to your **WooCommerce admin panel**.
+2. Navigate to **WooCommerce > Settings > Advanced > Webhooks**.
+3. Click on **Add Webhook**.
+4. Set the **Webhook Name** (e.g., "New Product Created").
+5. For **Topic**, select **Product created**.
+6. Set the **Delivery URL** to the endpoint where your backend listens for the webhook (e.g., `http://your-backend-url/products/create`).
+7. Click **Save Webhook**.
+
+### 4. Modify the API Key in Backend
+
+Once you've created your API key and webhook in WooCommerce, open the `.env` file in the **Backend** folder and update the necessary environment variables with the generated API key and secret.
+
+### 5. Running the Application
 
 #### Backend
 
@@ -80,11 +92,11 @@ npm install
 npm start
 ```
 
-### 5. Service Worker & SSE
+### 6. Service Worker & SSE
 
 The project uses **Server-Sent Events (SSE)** for real-time communication. Ensure the backend is correctly emitting events to the SSE endpoint specified in the `.env` file. The **Service Worker** handles caching and background tasks for the PWA functionality.
 
-### 6. Backend Controller - API Key Check
+### 7. Backend Controller - API Key Check
 
 **Note:** The code that verifies the WooCommerce API key in the backend controller is currently commented out. If you need to enable this check, simply uncomment the relevant code in the backend controller file.
 
